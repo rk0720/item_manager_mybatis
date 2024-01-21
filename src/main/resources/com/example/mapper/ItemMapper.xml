@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.mapper.ItemMapper">
+	<resultMap type="com.example.entity.Item" id="itemMap">
+		<id column="ID" property="id"/>
+		<result column="NAME" property="name"/>
+		<result column="PRICE" property="price"/>
+		<result column="DELETED_AT" property="deletedAt"/>
+		<result column="CATEGORY_ID" property="categoryId"/>
+		<result column="STOCK" property="stock"/>
+	</resultMap>
+	
+	<select id="findAll" resultMap="itemMap">
+		SELECT
+			*
+		FROM
+			ITEMS
+	</select>
+</mapper>

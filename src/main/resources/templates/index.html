@@ -20,26 +20,20 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr>
-				<td>1</td>
-				<td>サンプル商品1</td>
-				<td>101</td>
-				<td><input type="submit" value="編集"></td>
-				<td><input type="submit" value="削除"></td>
-			</tr>
-			<tr>
-				<td>2</td>
-				<td>サンプル商品2</td>
-				<td>102</td>
-				<td><input type="submit" value="編集"></td>
-				<td><input type="submit" value="削除"></td>
-			</tr>
-			<tr>
-				<td>3</td>
-				<td>サンプル商品3</td>
-				<td>103</td>
-				<td><input type="submit" value="編集"></td>
-				<td><input type="submit" value="削除"></td>
+			<tr th:each="item : ${items}">
+				<td th:text="${item.id}"></td>
+				<td th:text="${item.name}"></td>
+				<td th:text="${item.price}"></td>
+				<td>
+					<form method="get">
+						<input type="submit" value="編集">
+					</form>
+				</td>
+				<td>
+					<form method="post">
+						<input type="submit" value="削除">
+					</form>
+				</td>
 			</tr>
 		</tbody>
 	</table>
