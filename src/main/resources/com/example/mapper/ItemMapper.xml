@@ -10,12 +10,26 @@
 		<result column="DELETED_AT" property="deletedAt"/>
 		<result column="CATEGORY_ID" property="categoryId"/>
 		<result column="STOCK" property="stock"/>
+		<association property="category" javaType="com.example.entity.Category">
+			<id column="CG_ID" property="id"/>
+			<result column="CG_NAME" property="name"/>
+		</association>
 	</resultMap>
 	
 	<select id="findAll" resultMap="itemMap">
 		SELECT
-			*
+			I.ID,
+			I.NAME,
+			I.PRICE,
+			I.STOCK,
+			I.DELETED_AT,
+			CG.ID AS CG_ID,
+			CG.NAME AS CG_NAME
 		FROM
-			ITEMS
+			ITEMS I
+		INNER JOIN
+			CATEGORIES CG
+		ON
+			I.CATEGORY_ID = CG.ID
 	</select>
 </mapper>
