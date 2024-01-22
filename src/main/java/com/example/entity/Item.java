@@ -4,20 +4,20 @@ import java.time.LocalDateTime;
 
 public class Item {
 	
-	private int id;
+	private Integer id;
 	private String name;
-	private int price;
+	private Integer price;
 	private LocalDateTime deletedAt;
-	private int categoryId;
-	private int stock;
+	private Integer categoryId;
+	private Integer stock;
 	
 	private Category category;
 	
-	public int getId() {
+	public Integer getId() {
 		return id;
 	}
 	
-	public void setId(int id) {
+	public void setId(Integer id) {
 		this.id = id;
 	}
 	
@@ -29,11 +29,11 @@ public class Item {
 		this.name = name;
 	}
 	
-	public int getPrice() {
+	public Integer getPrice() {
 		return price;
 	}
 	
-	public void setPrice(int price) {
+	public void setPrice(Integer price) {
 		this.price = price;
 	}
 	
@@ -45,19 +45,19 @@ public class Item {
 		this.deletedAt = deletedAt;
 	}
 	
-	public int getCategoryId() {
+	public Integer getCategoryId() {
 		return categoryId;
 	}
 	
-	public void setCategoryId(int categoryId) {
+	public void setCategoryId(Integer categoryId) {
 		this.categoryId = categoryId;
 	}
 	
-	public int getStock() {
+	public Integer getStock() {
 		return stock;
 	}
 	
-	public void setStock(int stock) {
+	public void setStock(Integer stock) {
 		this.stock = stock;
 	}
 	

@@ -27,12 +27,12 @@
 				<td th:text="${item.price}"></td>
 				<td th:text="${item.category.name}"></td>
 				<td>
-					<form method="get">
+					<form th:action="@{/item/edit/{id}(id=${item.id})}" method="get">
 						<input type="submit" value="編集">
 					</form>
 				</td>
 				<td>
-					<form method="post">
+					<form th:action=@{/item/delete/{id}(id=${item.id})} method="post">
 						<input type="submit" value="削除">
 					</form>
 				</td>

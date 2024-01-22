@@ -7,6 +7,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -51,6 +52,29 @@ public class ItemController {
 		item.setPrice(itemform.getPrice());
 		
 		this.itemService.insert(item);
+		return "redirect:/item/index";
+	}
+	
+	@GetMapping("/edit/{id}")
+	public String showEdit(@PathVariable("id") Integer id, @ModelAttribute ItemForm itemForm, Model model) {
+		Item item = this.itemService.findById(id);
+		itemForm.setName(item.getName());
+		itemForm.setPrice(item.getPrice());
+		itemForm.setCategoryId(item.getCategoryId());
+		List<Category> categories = this.categoryService.findAll();
+		model.addAttribute("categories", categories);
+		return "edit";
+	}
+	
+	@PostMapping("/edit/{id}")
+	public String edit(@PathVariable Integer id, @ModelAttribute ItemForm itemForm) {
+		this.itemService.update(id, itemForm.getName(), itemForm.getPrice(), itemForm.getCategoryId());
+		return "redirect:/item/index";
+	}
+	
+	@PostMapping("/delete/{id}")
+	public String delete(@PathVariable Integer id) {
+		this.itemService.delete(id);
 		return "redirect:/item/index";
 	}
 }
