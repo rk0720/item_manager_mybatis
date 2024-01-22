@@ -21,5 +21,9 @@ public class ItemService {
 	public List<Item> findAll() {
 		return this.itemMapper.findAll();
 	}
+	
+	public void insert(Item item) {
+		this.itemMapper.insert(item);
+	}
 
 }

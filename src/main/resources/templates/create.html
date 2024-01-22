@@ -6,7 +6,8 @@
 </head>
 <body>
 	<h1>商品新規登録ページ</h1>
-	<form method="post" th:object="${itemForm}">
+	<form th:action="@{/item/create}" method="post" th:object="${itemForm}">
+		
 		<div>
 			<label>商品名</label>
 		</div>
