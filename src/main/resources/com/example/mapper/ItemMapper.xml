@@ -33,10 +33,43 @@
 			I.CATEGORY_ID = CG.ID
 	</select>
 	
+	<select id="findById" resultMap="itemMap">
+		SELECT
+			I.ID,
+			I.NAME,
+			I.PRICE,
+			CG.ID AS CG_ID,
+			CG.NAME AS CG_NAME
+		FROM
+			ITEMS I
+		INNER JOIN
+			CATEGORIES CG
+		ON
+			CG.ID = I.CATEGORY_ID
+		WHERE
+			I.ID = #{id}
+	</select>
+	
 	<insert id="insert" useGeneratedKeys="true" keyColumn="ID" keyProperty="id">
 		INSERT INTO
 			ITEMS(ID, NAME, PRICE, CATEGORY_ID)
 		VALUES
 			(ITEM_ID_SEQ.nextval, #{name}, #{price}, #{categoryId})
 	</insert>
+	
+	<update id="update">]
+		UPDATE
+			ITEMS
+		SET
+			NAME = #{name}, PRICE = #{price}, CATEGORY_ID = #{category.id}
+		WHERE
+			ID = #{ID}
+	</update>
+	
+	<delete id="delete">
+		DELETE FROM
+			ITEMS
+		WHERE
+			ID = #{id}
+	</delete>
 </mapper>
