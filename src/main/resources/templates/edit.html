@@ -17,13 +17,13 @@
 			<label>価格</label>
 		</div>
 		<div>
-			<input th:field="*{price}" type="text" placeholder="価格を入力してください">
+			<input th:field="*{price}" type="number" placeholder="価格を入力してください">
 		</div>
 		<div>
 			<label>カテゴリー</label>
 		</div>
 		<div>
-			<select th:field"*{categoryId}">
+			<select th:field="*{categoryId}">
 				<option th:each="category : ${categories}" th:value="${category.id}" th:text="${category.name}"></option>
 			</select>
 		</div>

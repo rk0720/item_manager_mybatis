@@ -39,7 +39,7 @@ public class ItemService {
 		Category category = new Category();
 		category.setId(categoryId);
 		item.setCategory(category);
-		this.itemMapper.insert(item);
+		this.itemMapper.update(item);
 	}
 	
 	public void delete(Integer id) {

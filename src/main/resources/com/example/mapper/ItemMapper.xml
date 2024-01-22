@@ -57,13 +57,13 @@
 			(ITEM_ID_SEQ.nextval, #{name}, #{price}, #{categoryId})
 	</insert>
 	
-	<update id="update">]
+	<update id="update">
 		UPDATE
 			ITEMS
 		SET
 			NAME = #{name}, PRICE = #{price}, CATEGORY_ID = #{category.id}
 		WHERE
-			ID = #{ID}
+			ID = #{id}
 	</update>
 	
 	<delete id="delete">
